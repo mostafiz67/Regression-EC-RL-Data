@@ -86,10 +86,6 @@ def ec_inner_loop(args: Namespace) -> Dict[str, DataFrame]:
         fold_df["R2"] = [r2_score(y_test, preds)]
         fold_dfs.append(fold_df)
     rep_df = pd.concat(fold_dfs, axis=0, ignore_index=True)
-    for method in methods:
-        inner_fold_residuals = fold_residuals
-        inner_fold_residuals = np.array(inner_fold_residuals).reshape(k*repetitions, -1) # number of folds * number of repetitions
-        rep_df[f"EC_{method}"] = np.mean(regression_ec(inner_fold_residuals, method))
     return fold_residuals, rep_df
 
 

@@ -226,6 +226,7 @@ def breast_cancer_dataset():
 
 def parkinsons_dataset():
     parkinsons_df = pd.read_csv(PARKINSONS_DATA)
+    # print(parkinsons_df["motor_UPDRS"].describe())
 
     # Splitting dataset into X and y
     X = parkinsons_df.drop(columns=["motor_UPDRS"])
@@ -322,4 +323,4 @@ def cancer_dataset():
 
 
 if __name__ == "__main__":
-    movie_dataset()
+    parkinsons_dataset()

@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --account=def-jlevman
-#SBATCH --mem=60000M  # memory
-#SBATCH --cpus-per-task=32
+#SBATCH --mem=10000M  # memory
+#SBATCH --cpus-per-task=16
 #SBATCH --output=Regression-EC-RL-Data-%j.out  # %N for node name, %j for jobID
 #SBATCH --time=00-00:20     # time (DD-HH:MM)
 #SBATCH --mail-user=x2020fpt@stfx.ca # used to send emailS

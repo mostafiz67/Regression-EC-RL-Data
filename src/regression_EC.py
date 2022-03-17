@@ -65,9 +65,7 @@ def ec_inner_loop(args: Namespace) -> Dict[str, DataFrame]:
     dataset = args.dataset
     regressor = args.regressor
     reg_name = args.reg_name
-    methods = args.methods
     k = args.k
-    repetitions = args.repetitions
     X_train, X_test, y_train, y_test = dataset
 
     fold_residuals, fold_dfs = [], []
@@ -81,6 +79,7 @@ def ec_inner_loop(args: Namespace) -> Dict[str, DataFrame]:
         fold_residuals.append(resid)
         fold_df = pd.DataFrame()
         fold_df["MSqE"] = [mean_squared_error(y_test, preds)]
+        fold_df["RMSqE"] = [mean_squared_error(y_test, preds, squared=False)]
         fold_df["MAE"] = [mean_absolute_error(y_test, preds)]
         fold_df["MAPE"] = [np.mean(np.abs(preds - y_test) / (y_test + 1e-5))]
         fold_df["R2"] = [r2_score(y_test, preds)]
@@ -136,6 +135,8 @@ def calculate_ECs(
                     "MAPE_sd": np.std(stats["MAPE"], ddof=1),
                     "MSqE": np.mean(stats["MSqE"]),
                     "MSqE_sd": np.std(stats["MSqE"], ddof=1),
+                    "RMSqE": np.mean(stats["RMSqE"]),
+                    "RMSqE_sd": np.std(stats["RMSqE"], ddof=1),
                     "R2": np.mean(stats["R2"]),
                     "R2_sd": np.std(stats["R2"], ddof=1),
                 },

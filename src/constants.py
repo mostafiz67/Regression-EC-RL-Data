@@ -16,6 +16,7 @@ SRC = ROOT / "src"
 OUT = ROOT / "output"
 MODEL_HT_PARAMS = ROOT / "model_ht_params"
 PLOT_OUTPUT_PATH = ROOT / "accuracy_vs_ec_plots"
+PLOT_HISTOGRAM = ROOT / "histogram_plot"
 if not OUT.exists():
     os.makedirs(OUT, exist_ok=True)
 if not MODEL_HT_PARAMS.exists():
@@ -26,8 +27,12 @@ if not PLOT_OUTPUT_PATH.exists():
 # names and types
 DATASET_NAMES = ["House", "Bike", "Wine", "MovieLense", "Breast-Cancer", "Parkinsons-Tele", "Diabetics", "Cancer"]
 MODEL_NAMES = ["Lasso", "Ridge", "RF", "Knn", "SVR"]
-ECMethod = Literal["ratio", "ratio-diff", "ratio-signed", "ratio-diff-signed", "intersection_union_sample", "intersection_union_all"]
-EC_METHODS: List[ECMethod] = ["ratio", "ratio-diff", "ratio-signed", "ratio-diff-signed", "intersection_union_sample", "intersection_union_all"]
+ECMethod = Literal["ratio", "ratio-diff", "ratio-signed", "ratio-diff-signed", 
+                    "intersection_union_sample", "intersection_union_all", "negative_incon",
+                    "positive_incon", "intersection_union_distance"]
+EC_METHODS: List[ECMethod] = ["ratio", "ratio-diff", "ratio-signed", "ratio-diff-signed", 
+                    "intersection_union_sample", "intersection_union_all", "negative_incon",
+                    "positive_incon", "intersection_union_distance"]
 
 # analysis constants
 SEED = 42

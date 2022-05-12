@@ -225,7 +225,7 @@ $RECYCLE.BIN/
 # Scripts out file
 *.out
 
-# All figures
-*.png
+# All histogram figures
+histogram_plot/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,python

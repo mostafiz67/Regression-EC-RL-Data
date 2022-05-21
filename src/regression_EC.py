@@ -2,6 +2,7 @@
 Author: Md Mostafizur Rahman
 File: Calculate Regression Error Consistency using different methods and benchmark datasets
 Some code id inherited from https://stackoverflow.com/questions/71430032/how-to-compare-two-numpy-arrays-with-multiple-condition
+                            https://stackoverflow.com/questions/71499798/pythonic-way-to-create-pandas-dataframe-based-on-if-else-condition-for-nd-array
 """
 
 from argparse import Namespace

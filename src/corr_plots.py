@@ -1,3 +1,7 @@
+"""
+Some code is inherited from https://stackoverflow.com/questions/68123724/how-to-plot-multiple-csv-files-with-separate-plots-for-each-category
+"""
+
 from pathlib import Path
 import pandas as pd
 from pandas.core.frame import DataFrame

@@ -1,6 +1,7 @@
 """
 Author: Md Mostafizur Rahman
 File: Calculate Regression Error Consistency using different methods and benchmark datasets
+Some code id inherited from https://stackoverflow.com/questions/71430032/how-to-compare-two-numpy-arrays-with-multiple-condition
 """
 
 from argparse import Namespace

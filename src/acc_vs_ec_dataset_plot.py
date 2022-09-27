@@ -12,7 +12,7 @@ from src.constants import OUT, PLOT_OUTPUT_PATH
 
 CSVS = [
     OUT / "Wine_error.csv",
-    OUT / "Bike_error.csv",
+    # OUT / "Bike_error.csv",
     # OUT / "House_error.csv",
     # OUT / 'Breast-Cancer_error.csv',
     # OUT / 'Cancer_error.csv',
@@ -30,16 +30,18 @@ df['Regressor'].replace(regex=True,inplace=True,to_replace='-H',value=r'')
 
 def ec_vs_accuracy_dataset():
     for dataset in df.Dataset.unique():
-        print(df, dataset)
+        # print(df, dataset)
         data = df[df["Dataset"] == dataset]
-        print(data)
-        plt.figure(figsize=(10, 8))
-        sns.scatterplot(data=data, x="EC", y="MAE", hue="Method", style="Regressor", s=100)
-        plt.legend(bbox_to_anchor=(1, 0.5), borderaxespad=0, loc="center left")
-        plt.xlabel("Error Consistency (EC)")
-        plt.ylabel("Mean Absolute Error (MAE)")
-        plt.title(f"Error Consistency vs MAE for the {dataset} dataset ")
-        plt.savefig(PLOT_OUTPUT_PATH / 'new_medical_plots' / f"MAE_{dataset}_only.png", bbox_inches='tight')
+        # print(data)
+        plt.figure(figsize=(15, 15))
+        sns.scatterplot(data=data, x="EC", y="R2", hue="Method", style="Regressor", s=350)
+        plt.legend(bbox_to_anchor=(1, 0.5), borderaxespad=0, loc="center left", fontsize=20, markerscale=2.5)
+        plt.xlabel("Error Consistency (EC)", fontsize=25)
+        plt.ylabel("R-Squared (R2)", fontsize=25)
+        plt.title(f"Error Consistency vs R2 for the {dataset} dataset ", fontsize=25)
+        plt.xticks(fontsize=25)
+        plt.yticks(fontsize=25)
+        plt.savefig(PLOT_OUTPUT_PATH / 'new_medical_plots' / f"R2_{dataset}_only.png", bbox_inches='tight')
         plt.clf()
 
 
@@ -65,5 +67,5 @@ def ec_vs_accuracy_all_dataset():
 
 
 if __name__ == "__main__":
-    # ec_vs_accuracy_dataset()
-    ec_vs_accuracy_all_dataset()
+    ec_vs_accuracy_dataset()
+    # ec_vs_accuracy_all_dataset()

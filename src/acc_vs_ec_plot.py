@@ -30,13 +30,15 @@ df['Regressor'].replace(regex=True,inplace=True,to_replace='-H',value=r'')
 def ec_vs_accuracy():
     for method in df.Method.unique():
         data = df[df.Method.eq(method)]
-        plt.figure(figsize=(10, 8))
-        sns.scatterplot(data=data, x="EC", y="R2", hue="Dataset", style="Regressor", s=100)
-        plt.legend(bbox_to_anchor=(1, 0.5), borderaxespad=0, loc="center left")
-        plt.xlabel("Error Consistency (EC)")
-        plt.ylabel("R-Squared (R2)")
-        plt.title(f"Error Consistency ({method}) vs R2")
-        plt.savefig(PLOT_OUTPUT_PATH / 'new_medical_plots' / f"{method}_R2_House_only.png", bbox_inches='tight')
+        plt.figure(figsize=(15, 15))
+        sns.scatterplot(data=data, x="EC", y="MAE", hue="Dataset", style="Regressor", s=100)
+        plt.legend(bbox_to_anchor=(1, 0.5), borderaxespad=0, loc="center left", fontsize=20)
+        plt.xlabel("Error Consistency (EC)", fontsize=25)
+        plt.ylabel("Mean Absolute Error (MAE)", fontsize=25)
+        plt.title(f"Error Consistency ({method}) vs MAE", fontsize=25)
+        plt.xticks(fontsize=25)
+        plt.yticks(fontsize=25)
+        plt.savefig(PLOT_OUTPUT_PATH / 'new_medical_plots' / f"{method}_MAE.png", bbox_inches='tight')
         plt.clf()
 
 

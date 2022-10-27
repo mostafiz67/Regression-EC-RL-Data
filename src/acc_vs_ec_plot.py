@@ -2,7 +2,7 @@
 Some code is inherited from https://stackoverflow.com/questions/68123724/how-to-plot-multiple-csv-files-with-separate-plots-for-each-category
 """
 
-# python3 -m src.acc_vs_ec
+# python3 -m src.acc_vs_ec_plot
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns

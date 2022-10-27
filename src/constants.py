@@ -25,14 +25,12 @@ if not PLOT_OUTPUT_PATH.exists():
     os.makedirs(PLOT_OUTPUT_PATH, exist_ok=True)
 
 # names and types
-DATASET_NAMES = ["House", "Bike", "Wine", "MovieLense", "Breast-Cancer", "Parkinsons-Tele", "Diabetics", "Cancer"]
+DATASET_NAMES = ["House", "Bike", "Wine", "Breast-Cancer", "Diabetics", "Cancer"]
 MODEL_NAMES = ["Lasso", "Ridge", "RF", "Knn", "SVR"]
 ECMethod = Literal["ratio", "ratio-diff", "ratio-signed", "ratio-diff-signed", 
-                    "intersection_union_sample", "intersection_union_all", "negative_incon",
-                    "positive_incon", "intersection_union_distance"]
+                    "intersection_union_sample", "intersection_union_all", "intersection_union_distance"]
 EC_METHODS: List[ECMethod] = ["ratio", "ratio-diff", "ratio-signed", "ratio-diff-signed", 
-                    "intersection_union_sample", "intersection_union_all", "negative_incon",
-                    "positive_incon", "intersection_union_distance"]
+                    "intersection_union_sample", "intersection_union_all", "intersection_union_distance"]
 
 # analysis constants
 SEED = 42
